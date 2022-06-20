@@ -40,12 +40,16 @@ app.delete("/todo/:id", (req, res) => {
     res.json(todo);
 });
 
-app.put("/todo", (req, res) => {
-    res.send("put todo");
+app.put("/todo/:id", (req, res) => {
+    const id = req.params.id;
+    const todo = persist.setTodo(id, req.body);
+    res.json(todo);
 });
 
-app.patch("/todo", (req, res) => {
-    res.send("patch todo");
+app.patch("/todo/:id", (req, res) => {
+    const id = req.params.id;
+    const todo = persist.patchTodo(id, req.body);
+    res.json(todo);
 });
 
 // Start server

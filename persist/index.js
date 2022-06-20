@@ -28,7 +28,26 @@ const getTodos = function (id) {
 }
 
 const deleteTodo = function (id) {
+    const todo = todoDb[id];
     delete todoDb[id];
+    return todo;
+}
+
+const setTodo = function (id, todo) {
+    todoDb[id] = todo;
+    return todo;
+}
+
+const patchTodo = function (id, todoData) {
+    // loop over the data and set each item
+
+    // pull the new data
+    for (const key in todoData) {
+        todoDb[id][key] = todoData[key];
+    }
+
+    const todo = todoDb[id];
+    return todo;
 }
 
 module.exports = {
@@ -36,4 +55,6 @@ module.exports = {
     getTodo: getTodo,
     getTodos: getTodos,
     deleteTodo: deleteTodo,
+    setTodo: setTodo,
+    patchTodo: patchTodo,
 }
