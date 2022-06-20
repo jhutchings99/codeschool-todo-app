@@ -1,0 +1,15 @@
+1) What does it need to do?
+    - expose http endpoints
+
+2) What do I need to get that done?
+    - npm install express --save
+    - npm install dotenv --save
+    - npm install flags -- save
+
+Kill things in terminal
+    - ctrl + c
+
+Put app.listen at the bottom of the page
+
+export key=value to create an environment variable
+    - export portnumber=3000
