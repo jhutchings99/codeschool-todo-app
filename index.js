@@ -30,7 +30,9 @@ app.get("/todos", (req, res) => {
 });
 
 app.post("/todo", (req, res) => {
-    const todo = persist.addTodo(req.body);
+    // validate the data
+    const validatedTodo = setUpTodo(req.body);
+    const todo = persist.addTodo(validatedTodo);
     res.json(todo);
 });
 
@@ -42,7 +44,9 @@ app.delete("/todo/:id", (req, res) => {
 
 app.put("/todo/:id", (req, res) => {
     const id = req.params.id;
-    const todo = persist.setTodo(id, req.body);
+    // validate the data
+    const validatedTodo = setUpTodo(req.body);
+    const todo = persist.setTodo(id, validatedTodo);
     res.json(todo);
 });
 
@@ -56,3 +60,28 @@ app.patch("/todo/:id", (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 })
+
+// Validation function
+var setUpTodo = function (todoData) {
+    // check deadline and make sure its good
+    // check done and make sure its good
+    // check name and make sure its good
+    // check description and make sure its good
+    let deadline = new Date();
+    let done = false;
+
+    if (todoData.deadline) {
+        deadline = new Date(todoData.deadline);
+    }
+    
+    if (todoData.done) {
+        done = todoData.done;
+    }
+
+    return {
+        name: todoData.name || "",
+        done: done,
+        description: todoData.description || "",
+        deadline: deadline,
+    }
+}
