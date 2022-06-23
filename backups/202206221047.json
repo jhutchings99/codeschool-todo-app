@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "62b27e8aae11e6aebc4d2dcb",
+    "name": "hello",
+    "description": "!",
+    "done": false,
+    "deadline": "2022-06-20T00:00:00.000Z",
+    "tags": ["school", "chore", "family", "other"],
+    "__v": 0
+  },
+  {
+    "_id": "62b3340fccc859ee85f3dbe1",
+    "name": "test",
+    "description": "teee",
+    "done": true,
+    "deadline": "2022-06-22T00:00:00.000Z",
+    "tags": ["school", "errand"],
+    "__v": 0
+  },
+  {
+    "_id": "62b33b35e9fca5f8ce2c509b",
+    "name": "",
+    "description": "",
+    "done": false,
+    "deadline": "2022-06-22T15:54:29.846Z",
+    "tags": ["school"],
+    "__v": 0
+  }
+]
